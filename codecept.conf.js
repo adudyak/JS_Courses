@@ -19,10 +19,10 @@ exports.config = {
       waitForTimeout: 10000,
       timeout: 10000,
       windowSize: '1900x1000',
-      video: true,
+      video: false,
     },
     Generator: {
-      require: './generator_helper.js',
+      require: './helpers/generator_helper.js',
     },
     ChaiWrapper: {
       require: 'codeceptjs-chai'

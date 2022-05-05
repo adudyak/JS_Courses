@@ -4,7 +4,7 @@ type homePage = typeof import('./pages/home.js');
 type authPage = typeof import('./pages/auth.js');
 type createAccountPage = typeof import('./pages/createAccount.js');
 type userData = typeof import('./data/user.js');
-type Generator = import('./generator_helper.js');
+type Generator = import('./helpers/generator_helper.js');
 type ChaiWrapper = import('codeceptjs-chai');
 
 declare namespace CodeceptJS {

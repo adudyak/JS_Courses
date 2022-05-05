@@ -1,9 +1,11 @@
+const FileHandler = require("./helpers/file_handler");
+
 Feature('Store');
 
 Scenario('first', async ({ I, homePage, authPage, createAccountPage, userData }) => {
   homePage.openStore();
   homePage.clickSignIn();
-  
+
   //custom Helper sample:
   authPage.fillNewUserEmail(await I.getRandomEmail());
 
@@ -29,3 +31,7 @@ Scenario('second', async ({ I, homePage, authPage, createAccountPage, userData }
   pause();
   I.see('My Account');*/
 }).tag('@login');
+
+Data(FileHandler.getData()).Scenario('multi login', async ({ I, current }) => {
+  console.log('Email: ' + current.email + '\nPassword: ' + current.password);
+}).tag('@multi');
