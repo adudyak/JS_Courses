@@ -1,4 +1,14 @@
+let accounts = new DataTable(['email', 'password']);
+accounts.add(['210327042022@test.com', '.VhGDZ!wqiKy@59']);
+accounts.add(['151527042022@test.com', '.VhGDZ!wqiKy@59']);
+
 const FileHandler = require("./helpers/file_handler");
+const ReadFile = require("./helpers/read_file");
+
+let logins = ReadFile.getContentFromFile('./data/logins.txt');
+console.log(logins);
+let array = ReadFile.convertStringToArray(logins);
+console.log(array);
 
 Feature('Store');
 
@@ -35,3 +45,11 @@ Scenario('second', async ({ I, homePage, authPage, createAccountPage, userData }
 Data(FileHandler.getData()).Scenario('multi login', async ({ I, current }) => {
   console.log('Email: ' + current.email + '\nPassword: ' + current.password);
 }).tag('@multi');
+
+Data(accounts).Scenario('Users from data', ({ current }) => {
+  //console.log('Email: ' + current.email + '\nPassword: ' + current.password);
+}).tag('@account');
+
+Data(ReadFile.getData()).Scenario('Users from data', ({ current }) => {
+  console.log('Email: ' + current.email + '\nPassword: ' + current.password);
+}).tag('@account2');
